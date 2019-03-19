@@ -31,7 +31,7 @@ show create table address;
 # 6a.
 select first_name,last_name,address from staff join address on staff.address_id = address.address_id;
 # 6b.
-select concat(staff.first_name," ",staff.last_name) as 'Staff Member', sum(payment.amount) as 'Total' from staff,payment where payment.payment_date between '2005-08-01' and '2005-08-31' and payment.staff_id = staff.staff_id;
+select concat(staff.first_name," ",staff.last_name) as 'Staff Member', sum(payment.amount) as 'Total' from staff,payment where payment.payment_date between '2005-08-01' and '2005-08-31' and payment.staff_id = staff.staff_id group by staff.staff_id;
 # 6c.
 select title,count(actor_id) as 'Actor Count' from film inner join film_actor on film.film_id = film_actor.film_id where film.film_id = film_actor.film_id group by title;
 # 6d.
